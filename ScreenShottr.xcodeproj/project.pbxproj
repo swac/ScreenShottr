@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFB13965134D7DCE00916A30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB13964134D7DCE00916A30 /* Cocoa.framework */; };
+		CFB1396F134D7DCE00916A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB1396D134D7DCE00916A30 /* InfoPlist.strings */; };
+		CFB13972134D7DCE00916A30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB13971134D7DCE00916A30 /* main.m */; };
+		CFB13975134D7DCE00916A30 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CFB13973134D7DCE00916A30 /* Credits.rtf */; };
+		CFB13978134D7DCE00916A30 /* ScreenShottrAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB13977134D7DCE00916A30 /* ScreenShottrAppDelegate.m */; };
+		CFB1397B134D7DCE00916A30 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFB13979134D7DCE00916A30 /* MainMenu.xib */; };
+		CFB13982134D7DCE00916A30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB13964134D7DCE00916A30 /* Cocoa.framework */; };
+		CFB1398A134D7DCE00916A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB13988134D7DCE00916A30 /* InfoPlist.strings */; };
+		CFB1398D134D7DCF00916A30 /* ScreenShottrTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */; };
+		CFB1398F134D7DCF00916A30 /* ScreenShottrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFB13983134D7DCE00916A30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB13957134D7DCE00916A30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFB1395F134D7DCE00916A30;
+			remoteInfo = ScreenShottr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFB13960134D7DCE00916A30 /* ScreenShottr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShottr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB13964134D7DCE00916A30 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CFB13967134D7DCE00916A30 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CFB13968134D7DCE00916A30 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CFB13969134D7DCE00916A30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CFB1396C134D7DCE00916A30 /* ScreenShottr-Info.plist */ = {isa = PBXFileReference; path = "ScreenShottr-Info.plist"; sourceTree = "<group>"; };
+		CFB1396E134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFB13970134D7DCE00916A30 /* ScreenShottr-Prefix.pch */ = {isa = PBXFileReference; path = "ScreenShottr-Prefix.pch"; sourceTree = "<group>"; };
+		CFB13971134D7DCE00916A30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFB13974134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		CFB13976134D7DCE00916A30 /* ScreenShottrAppDelegate.h */ = {isa = PBXFileReference; path = ScreenShottrAppDelegate.h; sourceTree = "<group>"; };
+		CFB13977134D7DCE00916A30 /* ScreenShottrAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShottrAppDelegate.m; sourceTree = "<group>"; };
+		CFB1397A134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CFB13981134D7DCE00916A30 /* ScreenShottrTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenShottrTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB13987134D7DCE00916A30 /* ScreenShottrTests-Info.plist */ = {isa = PBXFileReference; path = "ScreenShottrTests-Info.plist"; sourceTree = "<group>"; };
+		CFB13989134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFB1398B134D7DCE00916A30 /* ScreenShottrTests-Prefix.pch */ = {isa = PBXFileReference; path = "ScreenShottrTests-Prefix.pch"; sourceTree = "<group>"; };
+		CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShottrTests.h; sourceTree = "<group>"; };
+		CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShottrTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFB1395D134D7DCE00916A30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB13965134D7DCE00916A30 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB1397D134D7DCE00916A30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB13982134D7DCE00916A30 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFB13955134D7DCE00916A30 = {
+			isa = PBXGroup;
+			children = (
+				CFB1396A134D7DCE00916A30 /* ScreenShottr */,
+				CFB13985134D7DCE00916A30 /* ScreenShottrTests */,
+				CFB13963134D7DCE00916A30 /* Frameworks */,
+				CFB13961134D7DCE00916A30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFB13961134D7DCE00916A30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFB13960134D7DCE00916A30 /* ScreenShottr.app */,
+				CFB13981134D7DCE00916A30 /* ScreenShottrTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFB13963134D7DCE00916A30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFB13964134D7DCE00916A30 /* Cocoa.framework */,
+				CFB13966134D7DCE00916A30 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFB13966134D7DCE00916A30 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFB13967134D7DCE00916A30 /* AppKit.framework */,
+				CFB13968134D7DCE00916A30 /* CoreData.framework */,
+				CFB13969134D7DCE00916A30 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		CFB1396A134D7DCE00916A30 /* ScreenShottr */ = {
+			isa = PBXGroup;
+			children = (
+				CFB13976134D7DCE00916A30 /* ScreenShottrAppDelegate.h */,
+				CFB13977134D7DCE00916A30 /* ScreenShottrAppDelegate.m */,
+				CFB13979134D7DCE00916A30 /* MainMenu.xib */,
+				CFB1396B134D7DCE00916A30 /* Supporting Files */,
+			);
+			path = ScreenShottr;
+			sourceTree = "<group>";
+		};
+		CFB1396B134D7DCE00916A30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFB1396C134D7DCE00916A30 /* ScreenShottr-Info.plist */,
+				CFB1396D134D7DCE00916A30 /* InfoPlist.strings */,
+				CFB13970134D7DCE00916A30 /* ScreenShottr-Prefix.pch */,
+				CFB13971134D7DCE00916A30 /* main.m */,
+				CFB13973134D7DCE00916A30 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFB13985134D7DCE00916A30 /* ScreenShottrTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */,
+				CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */,
+				CFB13986134D7DCE00916A30 /* Supporting Files */,
+			);
+			path = ScreenShottrTests;
+			sourceTree = "<group>";
+		};
+		CFB13986134D7DCE00916A30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFB13987134D7DCE00916A30 /* ScreenShottrTests-Info.plist */,
+				CFB13988134D7DCE00916A30 /* InfoPlist.strings */,
+				CFB1398B134D7DCE00916A30 /* ScreenShottrTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFB1395F134D7DCE00916A30 /* ScreenShottr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB13992134D7DCF00916A30 /* Build configuration list for PBXNativeTarget "ScreenShottr" */;
+			buildPhases = (
+				CFB1395C134D7DCE00916A30 /* Sources */,
+				CFB1395D134D7DCE00916A30 /* Frameworks */,
+				CFB1395E134D7DCE00916A30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScreenShottr;
+			productName = ScreenShottr;
+			productReference = CFB13960134D7DCE00916A30 /* ScreenShottr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFB13980134D7DCE00916A30 /* ScreenShottrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB13995134D7DCF00916A30 /* Build configuration list for PBXNativeTarget "ScreenShottrTests" */;
+			buildPhases = (
+				CFB1397C134D7DCE00916A30 /* Sources */,
+				CFB1397D134D7DCE00916A30 /* Frameworks */,
+				CFB1397E134D7DCE00916A30 /* Resources */,
+				CFB1397F134D7DCE00916A30 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFB13984134D7DCE00916A30 /* PBXTargetDependency */,
+			);
+			name = ScreenShottrTests;
+			productName = ScreenShottrTests;
+			productReference = CFB13981134D7DCE00916A30 /* ScreenShottrTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFB13957134D7DCE00916A30 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = CFB1395A134D7DCE00916A30 /* Build configuration list for PBXProject "ScreenShottr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFB13955134D7DCE00916A30;
+			productRefGroup = CFB13961134D7DCE00916A30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFB1395F134D7DCE00916A30 /* ScreenShottr */,
+				CFB13980134D7DCE00916A30 /* ScreenShottrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFB1395E134D7DCE00916A30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB1396F134D7DCE00916A30 /* InfoPlist.strings in Resources */,
+				CFB13975134D7DCE00916A30 /* Credits.rtf in Resources */,
+				CFB1397B134D7DCE00916A30 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB1397E134D7DCE00916A30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB1398A134D7DCE00916A30 /* InfoPlist.strings in Resources */,
+				CFB1398D134D7DCF00916A30 /* ScreenShottrTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CFB1397F134D7DCE00916A30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFB1395C134D7DCE00916A30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB13972134D7DCE00916A30 /* main.m in Sources */,
+				CFB13978134D7DCE00916A30 /* ScreenShottrAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB1397C134D7DCE00916A30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB1398F134D7DCF00916A30 /* ScreenShottrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFB13984134D7DCE00916A30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFB1395F134D7DCE00916A30 /* ScreenShottr */;
+			targetProxy = CFB13983134D7DCE00916A30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFB1396D134D7DCE00916A30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB1396E134D7DCE00916A30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CFB13973134D7DCE00916A30 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB13974134D7DCE00916A30 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		CFB13979134D7DCE00916A30 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB1397A134D7DCE00916A30 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		CFB13988134D7DCE00916A30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB13989134D7DCE00916A30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFB13990134D7DCF00916A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CFB13991134D7DCF00916A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CFB13993134D7DCF00916A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScreenShottr/ScreenShottr-Prefix.pch";
+				INFOPLIST_FILE = "ScreenShottr/ScreenShottr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CFB13994134D7DCF00916A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScreenShottr/ScreenShottr-Prefix.pch";
+				INFOPLIST_FILE = "ScreenShottr/ScreenShottr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CFB13996134D7DCF00916A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScreenShottr.app/Contents/MacOS/ScreenShottr";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScreenShottrTests/ScreenShottrTests-Prefix.pch";
+				INFOPLIST_FILE = "ScreenShottrTests/ScreenShottrTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CFB13997134D7DCF00916A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ScreenShottr.app/Contents/MacOS/ScreenShottr";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ScreenShottrTests/ScreenShottrTests-Prefix.pch";
+				INFOPLIST_FILE = "ScreenShottrTests/ScreenShottrTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFB1395A134D7DCE00916A30 /* Build configuration list for PBXProject "ScreenShottr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB13990134D7DCF00916A30 /* Debug */,
+				CFB13991134D7DCF00916A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB13992134D7DCF00916A30 /* Build configuration list for PBXNativeTarget "ScreenShottr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB13993134D7DCF00916A30 /* Debug */,
+				CFB13994134D7DCF00916A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CFB13995134D7DCF00916A30 /* Build configuration list for PBXNativeTarget "ScreenShottrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB13996134D7DCF00916A30 /* Debug */,
+				CFB13997134D7DCF00916A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFB13957134D7DCE00916A30 /* Project object */;
+}

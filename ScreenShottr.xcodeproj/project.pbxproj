@@ -17,6 +17,7 @@
 		CFB1398A134D7DCE00916A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB13988134D7DCE00916A30 /* InfoPlist.strings */; };
 		CFB1398D134D7DCF00916A30 /* ScreenShottrTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */; };
 		CFB1398F134D7DCF00916A30 /* ScreenShottrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */; };
+		CFB1399A134D7ED400916A30 /* FTPConnection.c in Sources */ = {isa = PBXBuildFile; fileRef = CFB13998134D7ED400916A30 /* FTPConnection.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +36,22 @@
 		CFB13967134D7DCE00916A30 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		CFB13968134D7DCE00916A30 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CFB13969134D7DCE00916A30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CFB1396C134D7DCE00916A30 /* ScreenShottr-Info.plist */ = {isa = PBXFileReference; path = "ScreenShottr-Info.plist"; sourceTree = "<group>"; };
+		CFB1396C134D7DCE00916A30 /* ScreenShottr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScreenShottr-Info.plist"; sourceTree = "<group>"; };
 		CFB1396E134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CFB13970134D7DCE00916A30 /* ScreenShottr-Prefix.pch */ = {isa = PBXFileReference; path = "ScreenShottr-Prefix.pch"; sourceTree = "<group>"; };
+		CFB13970134D7DCE00916A30 /* ScreenShottr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenShottr-Prefix.pch"; sourceTree = "<group>"; };
 		CFB13971134D7DCE00916A30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFB13974134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		CFB13976134D7DCE00916A30 /* ScreenShottrAppDelegate.h */ = {isa = PBXFileReference; path = ScreenShottrAppDelegate.h; sourceTree = "<group>"; };
+		CFB13976134D7DCE00916A30 /* ScreenShottrAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShottrAppDelegate.h; sourceTree = "<group>"; };
 		CFB13977134D7DCE00916A30 /* ScreenShottrAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShottrAppDelegate.m; sourceTree = "<group>"; };
 		CFB1397A134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CFB13981134D7DCE00916A30 /* ScreenShottrTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenShottrTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFB13987134D7DCE00916A30 /* ScreenShottrTests-Info.plist */ = {isa = PBXFileReference; path = "ScreenShottrTests-Info.plist"; sourceTree = "<group>"; };
+		CFB13987134D7DCE00916A30 /* ScreenShottrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ScreenShottrTests-Info.plist"; sourceTree = "<group>"; };
 		CFB13989134D7DCE00916A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CFB1398B134D7DCE00916A30 /* ScreenShottrTests-Prefix.pch */ = {isa = PBXFileReference; path = "ScreenShottrTests-Prefix.pch"; sourceTree = "<group>"; };
+		CFB1398B134D7DCE00916A30 /* ScreenShottrTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenShottrTests-Prefix.pch"; sourceTree = "<group>"; };
 		CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShottrTests.h; sourceTree = "<group>"; };
 		CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShottrTests.m; sourceTree = "<group>"; };
+		CFB13998134D7ED400916A30 /* FTPConnection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FTPConnection.c; sourceTree = "<group>"; };
+		CFB13999134D7ED400916A30 /* FTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPConnection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 			children = (
 				CFB13976134D7DCE00916A30 /* ScreenShottrAppDelegate.h */,
 				CFB13977134D7DCE00916A30 /* ScreenShottrAppDelegate.m */,
+				CFB13998134D7ED400916A30 /* FTPConnection.c */,
+				CFB13999134D7ED400916A30 /* FTPConnection.h */,
 				CFB13979134D7DCE00916A30 /* MainMenu.xib */,
 				CFB1396B134D7DCE00916A30 /* Supporting Files */,
 			);
@@ -259,6 +264,7 @@
 			files = (
 				CFB13972134D7DCE00916A30 /* main.m in Sources */,
 				CFB13978134D7DCE00916A30 /* ScreenShottrAppDelegate.m in Sources */,
+				CFB1399A134D7ED400916A30 /* FTPConnection.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

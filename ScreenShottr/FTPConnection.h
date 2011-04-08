@@ -11,5 +11,9 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <SystemConfiguration/SystemConfiguration.h>
 
-CFWriteStreamRef ftpconnect();
-void cleanUp(CFWriteStreamRef, CFURLRef);
+#define READ_BUFFER_SIZE 16384
+
+CFWriteStreamRef ftpconnect(const char *connectionURL, const char *path);
+CFReadStreamRef ftplisting(const char *url);
+void cleanUpWriteStream(CFWriteStreamRef stream, CFURLRef url);
+void cleanUpReadStream(CFReadStreamRef stream, CFURLRef url);

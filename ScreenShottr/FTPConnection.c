@@ -9,43 +9,66 @@
 
 #include "FTPConnection.h"
 
-CFWriteStreamRef ftpconnect() {
-	const UInt8 *buf; // this is where your data to write to the server lives
-	CFIndex bufSize; // and this is how big it is
-	bufSize = 0;
+CFReadStreamRef ftplisting(const char *url) {
+    CFURLRef ftpURL;
+    CFReadStreamRef readStream;
+    
+    ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+    
+    readStream = CFReadStreamCreateWithFTPURL(kCFAllocatorSystemDefault, ftpURL);
+    if(!CFReadStreamOpen(readStream)) {
+		printf("failed to open FTP connection to URL %s",url);
+		cleanUpReadStream(readStream, ftpURL);
+	}
+    return readStream;
+}
+
+CFWriteStreamRef ftpconnect(const char *url, const char *path) {
 	
 	CFWriteStreamRef ftpWriteStream;
 	CFURLRef ftpURL;
-	
-	char url[] = "ftp://screenshottr:screentest@padres.dreamhost.com/testpic.png";
+    
+    ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+    
+    /*readBufferIndex = 0;
+    readBuffer = malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
+    
+    readStream = CFReadStreamCreateWithFTPURL(kCFAllocatorSystemDefault, ftpURL);
+    if(!CFReadStreamOpen(readStream)) {
+		printf("failed to open FTP connection to URL %s",url);
+		cleanUpWriteStream(ftpWriteStream, ftpURL);
+	}
+    bytesRead = CFReadStreamRead(readStream, readBuffer, READ_BUFFER_SIZE);
+//    do {
+//        bytesRead = CFReadStreamRead(readStream, readBuffer + readBufferIndex, READ_BUFFER_SIZE);
+//        readBufferIndex += bytesRead;
+//    } while(bytesRead > 0);
+    
+    bytesParsed = CFFTPCreateParsedResourceListing(kCFAllocatorSystemDefault, readBuffer, bytesRead, &listing);*/
+    
 	
 	ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
 	ftpWriteStream = CFWriteStreamCreateWithFTPURL(kCFAllocatorSystemDefault, ftpURL);
 	
-	/* CFWriteStreamSetProperty(ftpWriteStream, kCFStreamPropertyFTPPassword,"screentest"); */
-	
 	if (!CFWriteStreamOpen(ftpWriteStream)) {
 		printf("failed to open FTP connection to URL %s",url);
-		cleanUp(ftpWriteStream, ftpURL);
+		cleanUpWriteStream(ftpWriteStream, ftpURL);
 	}
-	
-	/* CFIndex bytesWritten = 0;
-     bytesWritten = CFWriteStreamWrite(ftpWriteStream,buf,bufSize);
-     
-     if (bytesWritten != bufSize) {
-     printf("Not all data was written to the server %d / %d", bytesWritten, bufSize);
-     cleanUp(ftpWriteStream, ftpURL);
-     } else if (bytesWritten == -1) {
-     printf("An error ocurred writing to stream %p",ftpWriteStream);
-     cleanUp(ftpWriteStream, ftpURL);
-     } */
 	
 	return ftpWriteStream;
 }
 
-void cleanUp(CFWriteStreamRef stream, CFURLRef url)
+void cleanUpWriteStream(CFWriteStreamRef stream, CFURLRef url)
 {
 	CFWriteStreamClose(stream);
+	
+	CFRelease(stream);
+	CFRelease(url);
+}
+
+void cleanUpReadStream(CFReadStreamRef stream, CFURLRef url)
+{
+	CFReadStreamClose(stream);
 	
 	CFRelease(stream);
 	CFRelease(url);

@@ -8,9 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FTPConnection.h"
+#import "FTPInfo.h"
+
+#define BUFFER_SIZE 1024
 
 @interface ScreenShottrAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
+    
+    FTPInfo *connectionInfo;
 	
 	IBOutlet NSTextField *host;
 	IBOutlet NSTextField *username;
@@ -19,7 +24,10 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (retain) FTPInfo *connectionInfo;
 
 - (IBAction)testConnection:(id)sender;
+- (IBAction)testListing:(id)sender;
+- (IBAction)createConnection:(id)sender;
 
 @end

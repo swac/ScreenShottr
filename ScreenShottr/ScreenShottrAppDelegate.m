@@ -11,21 +11,62 @@
 @implementation ScreenShottrAppDelegate
 
 @synthesize window;
+@synthesize connectionInfo;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application 
 }
 
+- (IBAction)createConnection:(id)sender {
+    connectionInfo = [[FTPInfo alloc] initWithHost:[host stringValue]
+                                          username:[username stringValue]
+                                          password:[password stringValue]];
+    NSLog(@"%s", [[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
+- (IBAction)testListing:(id)sender {
+    NSDictionary *dict;
+    NSEnumerator *enumerator;
+    id key;
+    CFReadStreamRef readStream;
+    CFIndex bytesRead, bytesParsed;
+    CFDictionaryRef listing;
+    UInt8 *readBuffer;
+    CFIndex readBufferIndex;
+    NSArray *entries;
+    NSString *read;
+    NSMutableSet *filenames;
+    
+    readBufferIndex = 0;
+    NSLog(@"here");
+    readBuffer = malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
+    
+    readStream = ftplisting([[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    bytesRead = CFReadStreamRead(readStream, readBuffer, READ_BUFFER_SIZE);
+    
+    read = [NSString stringWithCString:(char *)readBuffer encoding:NSUTF8StringEncoding];
+    entries = [read componentsSeparatedByString:@"\n"];
+    
+    
+    bytesParsed = CFFTPCreateParsedResourceListing(kCFAllocatorSystemDefault, readBuffer, bytesRead, &listing);
+    dict = (NSDictionary *) listing;
+    
+    enumerator = [dict keyEnumerator];
+    while((key = [enumerator nextObject]))
+        NSLog(@"%@ : %@", key, [dict objectForKey:key]);
+    NSLog(@"done");
+    free(readBuffer);
+}
+
 - (IBAction)testConnection:(id)sender {
+    char *path = "thing.png";    
+    
+	CFWriteStreamRef ftpWriteStream = ftpconnect([[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding], path);
 	
-#define bufSize 1024 // er whatever
-	
-	CFWriteStreamRef ftpWriteStream = ftpconnect();
-	
-	uint8_t buf[bufSize]; 
+	uint8_t buf[BUFFER_SIZE]; 
 	NSString *inputFilePath = @"/Users/ashwin/Desktop/file.png";
 	NSInteger bytesRead;
-	NSInteger written;
 	
 	NSInputStream *inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];
 	
@@ -36,30 +77,13 @@
 	
 	CFIndex bytesWritten = 0;
 	while([inFile hasBytesAvailable]) {
-		bytesRead = [inFile read:buf maxLength:bufSize];
+		bytesRead = [inFile read:buf maxLength:BUFFER_SIZE];
 		bytesWritten += CFWriteStreamWrite(ftpWriteStream, buf, bytesRead);
 	}
 	
-	/* if (bytesWritten != bufSize) {
-     printf("Not all data was written to the server %d / %d", bytesWritten, bufSize);
-     cleanUp(ftpWriteStream, ftpURL);
-     } else if (bytesWritten == -1) {
-     printf("An error ocurred writing to stream %p",ftpWriteStream);
-     cleanUp(ftpWriteStream, ftpURL);
-     
-     while ([inFile hasBytesAvailable]) {
-     bytesRead = [inFile read:buf maxLength:bufSize];
-     written = [(NSOutputStream *)ftpWriteStream write:buf maxLength:bytesRead];
-     if([written intValue] == -1)
-     {
-     [output setStringValue:@"oh fuck"];
-     break;
-     }
-     } */
-	
 	[inFile close];
 	
-	[output setIntValue:bytesWritten];
+	[output setIntValue:(int)bytesWritten];
 }
 
 @end

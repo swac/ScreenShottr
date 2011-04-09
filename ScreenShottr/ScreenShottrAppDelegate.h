@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "FTPConnection.h"
 #import "FTPInfo.h"
+#import "NameGenerator.h"
 
 #define BUFFER_SIZE 1024
 
@@ -27,7 +28,6 @@
 @property (retain) FTPInfo *connectionInfo;
 
 - (IBAction)testConnection:(id)sender;
-- (IBAction)testListing:(id)sender;
 - (IBAction)createConnection:(id)sender;
 
 @end

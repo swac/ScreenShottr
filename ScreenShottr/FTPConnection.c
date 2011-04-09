@@ -23,7 +23,7 @@ CFReadStreamRef ftplisting(const char *url) {
     return readStream;
 }
 
-CFWriteStreamRef ftpconnect(const char *url, const char *path) {
+CFWriteStreamRef ftpconnect(const char *url) {
 	
 	CFWriteStreamRef ftpWriteStream;
 	CFURLRef ftpURL;

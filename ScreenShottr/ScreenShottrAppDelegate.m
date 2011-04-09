@@ -14,7 +14,7 @@
 @synthesize connectionInfo;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application 
+	start_rng();
 }
 
 - (IBAction)createConnection:(id)sender {
@@ -24,48 +24,18 @@
     NSLog(@"%s", [[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
-- (IBAction)testListing:(id)sender {
-    NSDictionary *dict;
-    NSEnumerator *enumerator;
-    id key;
-    CFReadStreamRef readStream;
-    CFIndex bytesRead, bytesParsed;
-    CFDictionaryRef listing;
-    UInt8 *readBuffer;
-    CFIndex readBufferIndex;
-    NSArray *entries;
-    NSString *read;
-    NSMutableSet *filenames;
-    
-    readBufferIndex = 0;
-    NSLog(@"here");
-    readBuffer = malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
-    
-    readStream = ftplisting([[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
-    
-    bytesRead = CFReadStreamRead(readStream, readBuffer, READ_BUFFER_SIZE);
-    
-    read = [NSString stringWithCString:(char *)readBuffer encoding:NSUTF8StringEncoding];
-    entries = [read componentsSeparatedByString:@"\n"];
-    
-    
-    bytesParsed = CFFTPCreateParsedResourceListing(kCFAllocatorSystemDefault, readBuffer, bytesRead, &listing);
-    dict = (NSDictionary *) listing;
-    
-    enumerator = [dict keyEnumerator];
-    while((key = [enumerator nextObject]))
-        NSLog(@"%@ : %@", key, [dict objectForKey:key]);
-    NSLog(@"done");
-    free(readBuffer);
-}
-
 - (IBAction)testConnection:(id)sender {
-    char *path = "thing.png";    
+    NSString *filename, *extension, *inputFilePath;
     
-	CFWriteStreamRef ftpWriteStream = ftpconnect([[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding], path);
+    
+    filename = [NSString stringWithCString:random_filename(5) encoding:NSUTF8StringEncoding];
+    inputFilePath = @"/Users/ashwin/Desktop/file2.png";
+    extension = [inputFilePath pathExtension];
+    
+    CFWriteStreamRef ftpWriteStream = ftpconnect([[connectionInfo connectionURLWithFilename:filename
+                                                                              andExtension:extension] cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	uint8_t buf[BUFFER_SIZE]; 
-	NSString *inputFilePath = @"/Users/ashwin/Desktop/file.png";
 	NSInteger bytesRead;
 	
 	NSInputStream *inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];

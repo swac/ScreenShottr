@@ -24,15 +24,48 @@
     NSLog(@"%s", [[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
+- (void) getListing
+{
+    CFIndex bytesRead, bytesParsed;
+    CFDictionaryRef listing;
+    UInt8 *readBuffer;
+    CFIndex readBufferIndex;
+    int newlines;
+    CFIndex offset;
+    NSString *name;
+    struct read_stream *read;
+    
+    readBufferIndex = 0;
+    newlines = 0;
+    readBuffer = malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
+    
+    read = ftplisting([[connectionInfo connectionURL] cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    bytesRead = CFReadStreamRead(read->stream, readBuffer, READ_BUFFER_SIZE);
+    
+    [connectionInfo setFilenames: [[NSMutableSet alloc] init]];
+    offset = 0;
+    do {
+        bytesParsed = CFFTPCreateParsedResourceListing(kCFAllocatorSystemDefault, &readBuffer[offset], bytesRead - offset, &listing);
+        offset += bytesParsed;
+        name = [(NSDictionary *) listing objectForKey:@"kCFFTPResourceName"];
+        if(name != nil)
+        {
+            [[connectionInfo filenames] addObject:name];
+        }
+    } while(bytesParsed > 0);
+}
+
 - (IBAction)testConnection:(id)sender {
     NSString *filename, *extension, *inputFilePath;
+    struct write_stream *write;
     
     
     filename = [NSString stringWithCString:random_filename(5) encoding:NSUTF8StringEncoding];
     inputFilePath = @"/Users/ashwin/Desktop/file2.png";
     extension = [inputFilePath pathExtension];
     
-    CFWriteStreamRef ftpWriteStream = ftpconnect([[connectionInfo connectionURLWithFilename:filename
+    write = ftpconnect([[connectionInfo connectionURLWithFilename:filename
                                                                               andExtension:extension] cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	uint8_t buf[BUFFER_SIZE]; 
@@ -48,7 +81,7 @@
 	CFIndex bytesWritten = 0;
 	while([inFile hasBytesAvailable]) {
 		bytesRead = [inFile read:buf maxLength:BUFFER_SIZE];
-		bytesWritten += CFWriteStreamWrite(ftpWriteStream, buf, bytesRead);
+		bytesWritten += CFWriteStreamWrite(write->stream, buf, bytesRead);
 	}
 	
 	[inFile close];

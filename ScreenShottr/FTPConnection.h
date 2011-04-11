@@ -13,7 +13,17 @@
 
 #define READ_BUFFER_SIZE 16384
 
-CFWriteStreamRef ftpconnect(const char *connectionURL);
-CFReadStreamRef ftplisting(const char *url);
-void cleanUpWriteStream(CFWriteStreamRef stream, CFURLRef url);
-void cleanUpReadStream(CFReadStreamRef stream, CFURLRef url);
+struct write_stream {
+    CFWriteStreamRef stream;
+    CFURLRef ftpURL;
+};
+
+struct read_stream {
+    CFReadStreamRef stream;
+    CFURLRef ftpURL;
+};
+
+struct read_stream * ftplisting(const char *url);
+struct write_stream * ftpconnect(const char *connectionURL);
+void cleanUpWriteStream(struct write_stream *write);
+void cleanUpReadStream(struct read_stream *read);

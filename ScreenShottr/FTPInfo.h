@@ -25,5 +25,6 @@
 - (id) initWithHost:(NSString *)hostName username:(NSString *)user password:(NSString *)pw;
 - (NSString *) connectionURL;
 - (NSString *)connectionURLWithFilename:(NSString *)filename andExtension:(NSString *) extension;
+- (void) addFilename:(NSString *)name;
 
 @end

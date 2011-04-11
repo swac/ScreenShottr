@@ -9,26 +9,26 @@
 
 #include "FTPConnection.h"
 
-CFReadStreamRef ftplisting(const char *url) {
-    CFURLRef ftpURL;
-    CFReadStreamRef readStream;
+struct read_stream * ftplisting(const char *url) {
+    struct read_stream *read;
     
-    ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+    read = (struct read_stream *) malloc(sizeof(*read));
     
-    readStream = CFReadStreamCreateWithFTPURL(kCFAllocatorSystemDefault, ftpURL);
-    if(!CFReadStreamOpen(readStream)) {
+    read->ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+    
+    read->stream = CFReadStreamCreateWithFTPURL(kCFAllocatorSystemDefault, read->ftpURL);
+    if(!CFReadStreamOpen(read->stream)) {
 		printf("failed to open FTP connection to URL %s",url);
-		cleanUpReadStream(readStream, ftpURL);
+		cleanUpReadStream(read);
 	}
-    return readStream;
+    return read;
 }
 
-CFWriteStreamRef ftpconnect(const char *url) {
-	
-	CFWriteStreamRef ftpWriteStream;
-	CFURLRef ftpURL;
+struct write_stream * ftpconnect(const char *url) {
     
-    ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+    struct write_stream *write;
+	
+    write = (struct write_stream *) malloc(sizeof(*write));
     
     /*readBufferIndex = 0;
     readBuffer = malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
@@ -47,29 +47,29 @@ CFWriteStreamRef ftpconnect(const char *url) {
     bytesParsed = CFFTPCreateParsedResourceListing(kCFAllocatorSystemDefault, readBuffer, bytesRead, &listing);*/
     
 	
-	ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
-	ftpWriteStream = CFWriteStreamCreateWithFTPURL(kCFAllocatorSystemDefault, ftpURL);
+	write->ftpURL = CFURLCreateWithBytes(kCFAllocatorSystemDefault,(UInt8 *)url,strlen(url),kCFStringEncodingASCII,nil);
+	write->stream = CFWriteStreamCreateWithFTPURL(kCFAllocatorSystemDefault, write->ftpURL);
 	
-	if (!CFWriteStreamOpen(ftpWriteStream)) {
+	if (!CFWriteStreamOpen(write->stream)) {
 		printf("failed to open FTP connection to URL %s",url);
-		cleanUpWriteStream(ftpWriteStream, ftpURL);
+		cleanUpWriteStream(write);
 	}
 	
-	return ftpWriteStream;
+	return write;
 }
 
-void cleanUpWriteStream(CFWriteStreamRef stream, CFURLRef url)
+void cleanUpWriteStream(struct write_stream *write)
 {
-	CFWriteStreamClose(stream);
+	CFWriteStreamClose(write->stream);
 	
-	CFRelease(stream);
-	CFRelease(url);
+	CFRelease(write->stream);
+	CFRelease(write->ftpURL);
 }
 
-void cleanUpReadStream(CFReadStreamRef stream, CFURLRef url)
+void cleanUpReadStream(struct read_stream *read)
 {
-	CFReadStreamClose(stream);
+	CFReadStreamClose(read->stream);
 	
-	CFRelease(stream);
-	CFRelease(url);
+	CFRelease(read->stream);
+	CFRelease(read->ftpURL);
 }

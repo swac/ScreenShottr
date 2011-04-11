@@ -54,24 +54,28 @@
             [[connectionInfo filenames] addObject:name];
         }
     } while(bytesParsed > 0);
+    free(readBuffer);
+    cleanUpReadStream(read);
 }
 
 - (IBAction)testConnection:(id)sender {
     NSString *filename, *extension, *inputFilePath;
     struct write_stream *write;
+	NSInteger bytesRead;
+    NSInputStream *inFile;
+    uint8_t *buffer;
     
+    buffer = (uint8_t *) malloc(BUFFER_SIZE * sizeof(*buffer));
     
     filename = [NSString stringWithCString:random_filename(5) encoding:NSUTF8StringEncoding];
     inputFilePath = @"/Users/ashwin/Desktop/file2.png";
     extension = [inputFilePath pathExtension];
     
     write = ftpconnect([[connectionInfo connectionURLWithFilename:filename
-                                                                              andExtension:extension] cStringUsingEncoding:NSUTF8StringEncoding]);
+                                                     andExtension:extension] 
+                            cStringUsingEncoding:NSUTF8StringEncoding]);
 	
-	uint8_t buf[BUFFER_SIZE]; 
-	NSInteger bytesRead;
-	
-	NSInputStream *inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];
+	inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];
 	
 	if (!inFile)
 		[output setStringValue:@"shit's broke"];
@@ -80,11 +84,13 @@
 	
 	CFIndex bytesWritten = 0;
 	while([inFile hasBytesAvailable]) {
-		bytesRead = [inFile read:buf maxLength:BUFFER_SIZE];
-		bytesWritten += CFWriteStreamWrite(write->stream, buf, bytesRead);
+		bytesRead = [inFile read:buffer maxLength:BUFFER_SIZE];
+		bytesWritten += CFWriteStreamWrite(write->stream, buffer, bytesRead);
 	}
 	
 	[inFile close];
+    free(buffer);
+    cleanUpWriteStream(write);
 	
 	[output setIntValue:(int)bytesWritten];
 }

@@ -64,15 +64,25 @@
 	NSInteger bytesRead;
     NSInputStream *inFile;
     uint8_t *buffer;
+    bool collision;
+    char *cName;
     
+    [self getListing];
     buffer = (uint8_t *) malloc(BUFFER_SIZE * sizeof(*buffer));
     
-    filename = [NSString stringWithCString:random_filename(5) encoding:NSUTF8StringEncoding];
     inputFilePath = @"/Users/ashwin/Desktop/file2.png";
     extension = [inputFilePath pathExtension];
     
-    write = ftpconnect([[connectionInfo connectionURLWithFilename:filename
-                                                     andExtension:extension] 
+    collision = YES;
+    while(collision) {
+        cName = random_filename(5);
+        filename = [NSString stringWithFormat:@"%s.%@", cName, extension];
+        free(cName);
+        if(![[connectionInfo filenames] containsObject:filename])
+            collision = NO;
+    }
+    
+    write = ftpconnect([[connectionInfo connectionURLWithFilename:filename] 
                             cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];

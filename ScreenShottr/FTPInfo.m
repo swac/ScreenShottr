@@ -49,9 +49,9 @@
     return [NSString stringWithFormat:@"ftp://%@:%@@%@/", username, password, host];
 }
 
-- (NSString *)connectionURLWithFilename:(NSString *)filename andExtension:(NSString *) extension
+- (NSString *)connectionURLWithFilename:(NSString *)filename
 {
-    return [NSString stringWithFormat:@"ftp://%@:%@@%@/%@.%@", username, password, host, filename, extension];
+    return [NSString stringWithFormat:@"ftp://%@:%@@%@/%@", username, password, host, filename];
 }
 
 - (void)dealloc

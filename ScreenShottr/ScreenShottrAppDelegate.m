@@ -70,7 +70,8 @@
     [self getListing];
     buffer = (uint8_t *) malloc(BUFFER_SIZE * sizeof(*buffer));
     
-    inputFilePath = @"/Users/ashwin/Desktop/file2.png";
+    inputFilePath = @"~/Desktop/file2.png";
+    inputFilePath = [inputFilePath stringByExpandingTildeInPath];
     extension = [inputFilePath pathExtension];
     
     collision = YES;
@@ -102,7 +103,7 @@
     free(buffer);
     cleanUpWriteStream(write);
 	
-	[output setIntValue:(int)bytesWritten];
+	[output setStringValue:filename];
 }
 
 @end

@@ -105,6 +105,8 @@ void cleanUpWriteStream(struct write_stream *write)
 	
 	CFRelease(write->stream);
 	CFRelease(write->ftpURL);
+    
+    free(write);
 }
 
 void cleanUpReadStream(struct read_stream *read)
@@ -113,6 +115,8 @@ void cleanUpReadStream(struct read_stream *read)
 	
 	CFRelease(read->stream);
 	CFRelease(read->ftpURL);
+    
+    free(read);
 }
 
 @end

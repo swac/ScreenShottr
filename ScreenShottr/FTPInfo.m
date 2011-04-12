@@ -14,7 +14,6 @@
 @synthesize username;
 @synthesize password;
 @synthesize host;
-@synthesize filenames;
 
 - (id)init
 {
@@ -34,14 +33,8 @@
         [self setHost:hostName];
         [self setUsername:user];
         [self setPassword:pw];
-        [self setFilenames:nil];
     }
     return self;
-}
-
-- (void) addFilename:(NSString *)name
-{
-    [filenames addObject:name];
 }
 
 - (NSString *)connectionURL

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF16668C1354058C005BB01B /* FTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CF16668B1354058C005BB01B /* FTPConnection.m */; };
 		CF1BB8A91350E97C0087CD8E /* NameGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = CF1BB8A71350E97C0087CD8E /* NameGenerator.c */; };
 		CFB13965134D7DCE00916A30 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB13964134D7DCE00916A30 /* Cocoa.framework */; };
 		CFB1396F134D7DCE00916A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB1396D134D7DCE00916A30 /* InfoPlist.strings */; };
@@ -18,7 +19,6 @@
 		CFB1398A134D7DCE00916A30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFB13988134D7DCE00916A30 /* InfoPlist.strings */; };
 		CFB1398D134D7DCF00916A30 /* ScreenShottrTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */; };
 		CFB1398F134D7DCF00916A30 /* ScreenShottrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */; };
-		CFB1399A134D7ED400916A30 /* FTPConnection.c in Sources */ = {isa = PBXBuildFile; fileRef = CFB13998134D7ED400916A30 /* FTPConnection.c */; };
 		CFFAC1B9134F963A00E4D4D5 /* FTPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFAC1B8134F963A00E4D4D5 /* FTPInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF16668B1354058C005BB01B /* FTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPConnection.m; sourceTree = "<group>"; };
 		CF1BB8A71350E97C0087CD8E /* NameGenerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NameGenerator.c; sourceTree = "<group>"; };
 		CF1BB8A81350E97C0087CD8E /* NameGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameGenerator.h; sourceTree = "<group>"; };
 		CFB13960134D7DCE00916A30 /* ScreenShottr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShottr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +55,6 @@
 		CFB1398B134D7DCE00916A30 /* ScreenShottrTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScreenShottrTests-Prefix.pch"; sourceTree = "<group>"; };
 		CFB1398C134D7DCF00916A30 /* ScreenShottrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShottrTests.h; sourceTree = "<group>"; };
 		CFB1398E134D7DCF00916A30 /* ScreenShottrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShottrTests.m; sourceTree = "<group>"; };
-		CFB13998134D7ED400916A30 /* FTPConnection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FTPConnection.c; sourceTree = "<group>"; };
 		CFB13999134D7ED400916A30 /* FTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPConnection.h; sourceTree = "<group>"; };
 		CFFAC1B7134F963A00E4D4D5 /* FTPInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPInfo.h; sourceTree = "<group>"; };
 		CFFAC1B8134F963A00E4D4D5 /* FTPInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPInfo.m; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 				CF1BB8A81350E97C0087CD8E /* NameGenerator.h */,
 				CFFAC1B7134F963A00E4D4D5 /* FTPInfo.h */,
 				CFFAC1B8134F963A00E4D4D5 /* FTPInfo.m */,
-				CFB13998134D7ED400916A30 /* FTPConnection.c */,
 				CFB13999134D7ED400916A30 /* FTPConnection.h */,
+				CF16668B1354058C005BB01B /* FTPConnection.m */,
 				CFB13979134D7DCE00916A30 /* MainMenu.xib */,
 				CFB1396B134D7DCE00916A30 /* Supporting Files */,
 			);
@@ -274,9 +274,9 @@
 			files = (
 				CFB13972134D7DCE00916A30 /* main.m in Sources */,
 				CFB13978134D7DCE00916A30 /* ScreenShottrAppDelegate.m in Sources */,
-				CFB1399A134D7ED400916A30 /* FTPConnection.c in Sources */,
 				CFFAC1B9134F963A00E4D4D5 /* FTPInfo.m in Sources */,
 				CF1BB8A91350E97C0087CD8E /* NameGenerator.c in Sources */,
+				CF16668C1354058C005BB01B /* FTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

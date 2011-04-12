@@ -11,8 +11,6 @@
 #import "FTPInfo.h"
 #import "NameGenerator.h"
 
-#define BUFFER_SIZE 1024
-
 @interface ScreenShottrAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
     

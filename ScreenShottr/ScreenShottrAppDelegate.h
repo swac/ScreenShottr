@@ -20,12 +20,23 @@
 	IBOutlet NSTextField *username;
 	IBOutlet NSSecureTextField *password;
 	IBOutlet NSTextField *output;
+    
+    BOOL shouldObserveDesktop;
+	NSDictionary *knownScreenshotsOnDesktop;
+	NSString *screenshotLocation;
+	NSString *screenshotFilenameSuffix;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) FTPInfo *connectionInfo;
 
-- (IBAction)testConnection:(id)sender;
 - (IBAction)createConnection:(id)sender;
+
+- (void)startObservingDesktop;
+- (void)stopObservingDesktop;
+- (NSDictionary *)screenshotsOnDesktop;
+- (NSDictionary *)screenshotsAtPath:(NSString *)dirpath modifiedAfterDate:(NSDate *)lmod;
+- (void)checkForScreenshotsAtPath:(NSString *)dirpath;
+- (NSDictionary *)findUnprocessedScreenshotsOnDesktop;
 
 @end

@@ -16,7 +16,7 @@
     CFIndex bytesRead;
     UInt8 *readBuffer;
     
-    read = ftplisting([[connectionInfo connectionURLWithFilename:filename] cStringUsingEncoding:NSUTF8StringEncoding]);
+    read = ftplisting([[[connectionInfo connectionURLWithFilename:filename] absoluteString] cStringUsingEncoding:NSUTF8StringEncoding]);
     readBuffer = (UInt8 *) malloc(READ_BUFFER_SIZE * sizeof(*readBuffer));
     bytesRead = CFReadStreamRead(read->stream, readBuffer, READ_BUFFER_SIZE);
     free(readBuffer);
@@ -47,7 +47,7 @@
         collision = [FTPConnection fileExists:filename withConnection:connectionInfo];
     }
     
-    write = ftpconnect([[connectionInfo connectionURLWithFilename:filename] 
+    write = ftpconnect([[[connectionInfo connectionURLWithFilename:filename] absoluteString]
                         cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	inFile = [NSInputStream inputStreamWithFileAtPath:inputFilePath];

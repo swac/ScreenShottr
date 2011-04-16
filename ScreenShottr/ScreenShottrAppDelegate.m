@@ -22,9 +22,11 @@
 }
 
 - (IBAction)createConnection:(id)sender {
-    connectionInfo = [[FTPInfo alloc] initWithHost:[host stringValue]
-                                          username:[username stringValue]
-                                          password:[password stringValue]];
+    connectionInfo = [[FTPInfo alloc] initWithHost:[hostField stringValue]
+                                          username:[usernameField stringValue]
+                                          password:[passwordField stringValue]
+                                              path:[pathField stringValue]
+                                               url:[urlField stringValue]];
 }
 
 - (void)onDirectoryNotification:(NSNotification *)n {
@@ -38,7 +40,10 @@
     if (shouldObserveDesktop)
         return;
     NSDistributedNotificationCenter *dnc = [NSDistributedNotificationCenter defaultCenter];
-    [dnc addObserver:self selector:@selector(onDirectoryNotification:) name:@"com.apple.carbon.core.DirectoryNotification" object:nil suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+    [dnc addObserver:self 
+            selector:@selector(onDirectoryNotification:) 
+                name:@"com.apple.carbon.core.DirectoryNotification" 
+              object:nil suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
     shouldObserveDesktop = YES;
 }
 
@@ -72,7 +77,7 @@
             uploadURL = [FTPConnection uploadFile:path 
                                      toConnection:[self connectionInfo]];
             [output setStringValue:uploadURL];
-            [paste setString: uploadURL forType:NSStringPboardType];
+            [paste setString: [NSString stringWithFormat:@"%@/%@", [connectionInfo url], uploadURL] forType:NSStringPboardType];
         }
 	}
 }

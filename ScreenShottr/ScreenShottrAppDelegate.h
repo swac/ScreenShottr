@@ -16,10 +16,12 @@
     
     FTPInfo *connectionInfo;
 	
-	IBOutlet NSTextField *host;
-	IBOutlet NSTextField *username;
-	IBOutlet NSSecureTextField *password;
+	IBOutlet NSTextField *hostField;
+	IBOutlet NSTextField *usernameField;
+	IBOutlet NSSecureTextField *passwordField;
 	IBOutlet NSTextField *output;
+    IBOutlet NSTextField *pathField;
+    IBOutlet NSTextField *urlField;
     
     BOOL shouldObserveDesktop;
 	NSDictionary *knownScreenshotsOnDesktop;

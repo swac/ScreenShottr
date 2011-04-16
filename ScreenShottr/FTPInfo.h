@@ -13,14 +13,18 @@
     NSString *username;
     NSString *password;
     NSString *host;
+    NSString *path;
+    NSString *url;
 }
 
 @property (copy) NSString *username;
 @property (copy) NSString *password;
 @property (copy) NSString *host;
+@property (copy) NSString *path;
+@property (copy) NSString *url;
 
-- (id) initWithHost:(NSString *)hostName username:(NSString *)user password:(NSString *)pw;
+- (id) initWithHost:(NSString *)hostName username:(NSString *)user password:(NSString *)pw path:(NSString *)serverPath url:(NSString *)siteURL;
 - (NSString *) connectionURL;
-- (NSString *)connectionURLWithFilename:(NSString *)filename;
+- (NSURL *)connectionURLWithFilename:(NSString *)filename;
 
 @end

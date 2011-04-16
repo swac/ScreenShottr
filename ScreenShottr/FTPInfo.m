@@ -14,6 +14,8 @@
 @synthesize username;
 @synthesize password;
 @synthesize host;
+@synthesize path;
+@synthesize url;
 
 - (id)init
 {
@@ -25,7 +27,7 @@
     return self;
 }
 
-- (id) initWithHost:(NSString *)hostName username:(NSString *)user password:(NSString *)pw
+- (id) initWithHost:(NSString *)hostName username:(NSString *)user password:(NSString *)pw path:(NSString *)serverPath url:(NSString *)siteURL
 {
     self = [super init];
     if(self)
@@ -33,6 +35,8 @@
         [self setHost:hostName];
         [self setUsername:user];
         [self setPassword:pw];
+        [self setPath:serverPath];
+        [self setUrl:siteURL];
     }
     return self;
 }
@@ -42,9 +46,9 @@
     return [NSString stringWithFormat:@"ftp://%@:%@@%@/", username, password, host];
 }
 
-- (NSString *)connectionURLWithFilename:(NSString *)filename
+- (NSURL *)connectionURLWithFilename:(NSString *)filename
 {
-    return [NSString stringWithFormat:@"ftp://%@:%@@%@/%@", username, password, host, filename];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"ftp://%@:%@@%@/%@/%@", username, password, host, path, filename]];
 }
 
 - (void)dealloc

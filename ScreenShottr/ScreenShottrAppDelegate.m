@@ -60,6 +60,9 @@
 	NSArray *paths;
     NSPasteboard *paste;
     NSString *uploadURL;
+    NSMutableArray *filenames;
+    NSString *source, *destination;
+    NSInteger tag;
 	
 	// find new screenshots
 	if (!(files = [self findUnprocessedScreenshotsOnDesktop]))
@@ -71,6 +74,7 @@
 	// process each file
     paste = [NSPasteboard generalPasteboard];
     [paste clearContents];
+    filenames = [[NSMutableArray alloc] init];
 	for (NSString *path in paths) {
         if(connectionInfo != nil)
         {
@@ -78,8 +82,18 @@
                                      toConnection:[self connectionInfo]];
             [output setStringValue:uploadURL];
             [paste setString: [NSString stringWithFormat:@"%@/%@", [connectionInfo url], uploadURL] forType:NSStringPboardType];
+            [filenames addObject:[path lastPathComponent]];
         }
 	}
+    
+    source = [screenshotLocation stringByExpandingTildeInPath];
+    destination = [NSHomeDirectory() stringByAppendingPathComponent:@".Trash"];
+    [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
+                                                 source:source
+                                            destination:destination
+                                                  files:filenames
+                                                    tag:&tag];
+    [filenames release];
 }
 
 - (NSDictionary *)findUnprocessedScreenshotsOnDesktop {
